@@ -7,6 +7,10 @@
 # Inherit from sm8250-common
 $(call inherit-product, device/motorola/sm8250-common/common.mk)
 
+# Display
+PRODUCT_VENDOR_PROPERTIES += \
+    debug.graphics.game_default_frame_rate.disabled=1
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
