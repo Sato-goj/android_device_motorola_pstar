@@ -18,6 +18,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
+    'hardware/motorola',
     'hardware/qcom-caf/common/libqti-perfd-client',
     'vendor/motorola/sm8250-common',
     'vendor/qcom/opensource/display',
