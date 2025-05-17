@@ -26,6 +26,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.device.default_name=edge 20 pro
 
+#Overlays _Lineage
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
 # Camera
 PRODUCT_PACKAGES += \
     libgui_shim_vendor
