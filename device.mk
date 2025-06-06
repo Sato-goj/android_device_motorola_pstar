@@ -7,12 +7,6 @@
 # Inherit from sm8250-common
 $(call inherit-product, device/motorola/sm8250-common/common.mk)
 
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.freeform_window_management.xml \
-    frameworks/native/data/etc/android.software.picture_in_picture.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.picture_in_picture.xml
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
@@ -23,6 +17,10 @@ PRODUCT_PACKAGES += \
     SystemUIResPstar \
     SettingsProviderResPstar
 
+# DisplayAdd commentMore actions
+PRODUCT_VENDOR_PROPERTIES += \
+    debug.graphics.game_default_frame_rate.disabled=1
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
@@ -32,23 +30,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.device.default_name=edge 20 pro
 
-# Call recording
-PRODUCT_PACKAGES += \
-    com.google.android.apps.dialer.call_recording_audio.features.xml
-
 # Camera
 PRODUCT_PACKAGES += \
     libgui_shim_vendor
-
-# Dex preopt
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStep \
-    SettingsGoogle \
-    SystemUIGoogle
-
-# Display
-PRODUCT_VENDOR_PROPERTIES += \
-    debug.graphics.game_default_frame_rate.disabled=1
 
 # Init
 PRODUCT_PACKAGES += \
@@ -64,25 +48,11 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2-service.st \
     nfc_nci.st21nfc.default
 
-# Overlays
-PRODUCT_PACKAGES += \
-    FrameworksResPstar \
-    SystemUIResPstar \
-    SettingsProviderResPstar
-
-# Overlays _Lineage
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-lineage
-
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.freeform_window_management.xml \
-    frameworks/native/data/etc/android.software.picture_in_picture.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.picture_in_picture.xml
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+# Dex preoptAdd commentMore actions
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep \
+    SettingsGoogle \
+    SystemUIGoogle
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/motorola/pstar/pstar-vendor.mk)
