@@ -60,6 +60,9 @@
         <item>500</item>
     </array>
 
+    <!-- If true, the display will be shifted around in ambient mode. -->
+    <bool name="config_enableBurnInProtection">true</bool>
+
     <!-- An array describing the screen's backlight values corresponding to the brightness
          values in the config_screenBrightnessNits array.
 
@@ -100,14 +103,10 @@
     <!-- Not allow to switch to higher refresh rate when (display, ambient) brightness falls into
          the region defined by the two arrays -->
     <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
-        <!-- System brightness for 25 nits: round((25-2)/(1000-2)*(255-1)+1) = 7 -->
-        <item>7</item> <!-- 27% UI brightness -->
-        <!-- System brightness for 40 nits: round((40-2)/(1000-2)*(255-1)+1) = 11 -->
-        <item>11</item> <!-- 34% UI brightness -->
+        <item>56</item> <!-- 100nit -->
     </integer-array>
     <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
         <item>-1</item>
-        <item>15</item>
     </integer-array>
 
     <!-- default refresh rate in the zone defined by birghtness and ambient thresholds -->
@@ -190,14 +189,4 @@
 
     <!-- Indicates whether device has a power button fingerprint sensor. -->
     <bool name="config_is_powerbutton_fps" translatable="false">true</bool>
-	
-	<!-- If true, the display will be shifted around in ambient mode. -->
-    <bool name="config_enableBurnInProtection">true</bool>
-	
-	<!-- The device supports freeform window management. Windows have title bars and can be moved
-         and resized. If you set this to true, you also need to add
-         PackageManager.FEATURE_FREEFORM_WINDOW_MANAGEMENT feature to your device specification.
-         The duplication is necessary, because this information is used before the features are
-         available to the system.-->
-    <bool name="config_freeformWindowManagement">true</bool>
 </resources>
